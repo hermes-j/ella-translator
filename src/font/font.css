@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* Webpage Fonts */
+@font-face {
+  font-family: 'NanumGothic';
+  src: url(NanumGothic.ttf);
+}
+
+/* Lost Ark Languages */
+@font-face {
+  font-family: 'Ella';
+  src: url('Ella.ttf');
+}
