@@ -15,12 +15,14 @@ import {
   MdSpaceBar as IconSpacebar,
   MdDelete as IconDelete,
 } from 'react-icons/md';
+import { translateString } from './functions/string';
 
 function App() {
   const [lang, setLang] = useState('KR');
   const [font] = useState('Ella');
   const [content, setContent] = useState('');
-  const [order, setOrder] = useState(false);
+  const [order] = useState(false);
+  // const [order, setOrder] = useState(false);
 
   const onKeyClick = (value: string) => {
     setContent(content + value);
@@ -53,13 +55,6 @@ function App() {
     );
   };
 
-  const reverseString = (str: string) => {
-    const charArray = str.split('');
-    charArray.reverse();
-    const reversed = charArray.join('');
-    return reversed;
-  };
-
   return (
     <div className='App'>
       <div
@@ -69,7 +64,7 @@ function App() {
         <h1 style={{ fontFamily: 'Ella' }}>lrrudsjq jdkffljd</h1>
       </div>
 
-      {/* selecting font */}
+      {/* 폰트 선택, 엘라어 이외의 문자가 나올 일은 없어 보임 */}
       {/* <div style={{ margin: '0 1rem' }}>
         <Button onClick={() => setFont('Ella')}>
           {lang === 'KR' ? '엘라어' : 'Ella'}
@@ -92,8 +87,9 @@ function App() {
           <IconSwitch
             style={{ display: 'grid', alignItems: 'center' }}
             size='40'
+            title='한글-엘라 변환기능 개발중'
             onClick={() => {
-              setOrder(!order);
+              // setOrder(!order);
             }}
           />
         </KeyButton>
@@ -101,10 +97,10 @@ function App() {
           id='alpha'
           className='result'
           style={{ fontFamily: 'NanumGothic', fontSize: 25, fontWeight: 500 }}
-          value={reverseString(content)}
+          value={translateString(content)}
           placeholder={lang === 'KR' ? '한글' : 'Hangul (Korean)'}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            if (order) setContent(reverseString(event.target.value));
+            if (order) setContent(translateString(event.target.value));
           }}
           readOnly={!order}
         />
@@ -130,26 +126,12 @@ function App() {
       {/* comment line */}
       <div style={{ marginTop: '2%' }}>
         <hr />
-        아직 개발 중인 사이트입니다. <br /> 현재 엘라어가 적용된 영문을 한글로
-        바꾸는 작업이 필요한데,
-        <br />
-        쌍자음(ㄲ, ㅆ 등)과 겹모음(ㅔ, ㅚ 등)에 별개의 표기가 존재하지 않는
-        엘라어 특성상 추가적인 변환이 필요해 보입니다.
-        <br />
-        만약 벌써 이 사이트를 발견하신 분이 계시다면, 아래의 한영타 변환기를
-        이용해 주시기 바랍니다. 감사합니다.
       </div>
 
       {/* Language & Github */}
       <div style={{ marginTop: '1%' }}>
         <a href='https://github.com/ramzoon/genshin-translate' target='blank'>
           <Button>Github</Button>
-        </a>
-        <a
-          href='https://www.theyt.net/wiki/%ED%95%9C%EC%98%81%ED%83%80%EB%B3%80%ED%99%98%EA%B8%B0'
-          target='blank'
-        >
-          <Button>{lang === 'KR' ? '한영타 변환기' : 'ko-en converter'}</Button>
         </a>
         <a
           href='https://www.inven.co.kr/board/lostark/4811/4751346'

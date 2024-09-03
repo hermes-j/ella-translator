@@ -1,7 +1,7 @@
 {
   "name": "ella-translator",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "base": "https://hermes-j.github.io/ella-translator",
   "type": "module",
   "scripts": {
@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "inko": "^1.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
@@ -31,5 +32,17 @@
     "gh-pages": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"
-  }
+  },
+  "description": "MMORPG 게임 '로스트아크'에 등장하는 가공의 언어 '엘라'어의 번역기입니다. Translator of 'Ella', fictitious language from MMORPG 'LOST ARK'.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermes-j/ella-translator.git"
+  },
+  "author": "hermesj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hermes-j/ella-translator/issues"
+  },
+  "homepage": "https://github.com/hermes-j/ella-translator#readme"
 }
