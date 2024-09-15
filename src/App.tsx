@@ -9,7 +9,8 @@ import { jaum, moum } from './constants/alphas';
 // icons
 import {
   HiOutlineBackspace as IconBackspace,
-  HiSwitchVertical as IconSwitch,
+  // HiSwitchVertical as IconSwitch,
+  HiSwitchHorizontal as IconReverse,
 } from 'react-icons/hi';
 import {
   MdSpaceBar as IconSpacebar,
@@ -84,12 +85,12 @@ function App() {
           readOnly={order}
         />
         <KeyButton style={{ margin: 10 }}>
-          <IconSwitch
+          <IconReverse
             style={{ display: 'grid', alignItems: 'center' }}
             size='40'
-            title='한글-엘라 변환기능 개발중'
+            title='문자열 뒤집기'
             onClick={() => {
-              // setOrder(!order);
+              setContent(content.split('').reverse().join(''));
             }}
           />
         </KeyButton>
@@ -125,7 +126,31 @@ function App() {
 
       {/* comment line */}
       <div style={{ marginTop: '2%' }}>
-        <hr />
+        <hr style={{ marginBottom: '2%' }} />
+        MMORPG 게임 '로스트아크'에 등장하는 가공의 언어 '엘라'의 번역기입니다.{' '}
+        <br />
+        한글을 기반으로 하여 만들어졌으나 한글과는 다르게{' '}
+        <b>오른쪽에서 왼쪽으로 쓰고 읽으며</b>, 쌍자음(ㄲ, ㅆ 등)과 겹모음(ㅔ,
+        ㅚ 등)을 단자음과 단모음의 조합으로 나타낸다는 차이점이 있습니다.
+        <br />
+        (예시) '쌍' → 'ㅅㅅㅏㅇ', '엘' → 'ㅇㅓㅣㄹ'
+        <br />
+        <br />
+        <b>사용법</b> <br />
+        자판에서 번역하고자 하는 문자를 클릭해 입력합니다. 입력한 내용은 아래쪽
+        텍스트칸에서 변환되어 나타납니다. <br />두 텍스트칸 사이의 버튼을 이용해
+        문자열을 반대로 뒤집을 수 있으며, 이를 이용해 번역 시 편하게 왼쪽부터
+        오른쪽으로 입력 후 뒤집을 수 있습니다. <br />
+        <br />
+        <b>주의점</b>
+        <br />
+        엘라어의 표기법 특성상, 쌍자음을 표기할 경우 그 내용을 읽는 자가 문맥에
+        맞게 파악해야 한다는 문제점이 있습니다. <br />
+        (예시: '아빠'를 엘라어로 적으면 이게 '아빠'인지 '압바'인지 문맥으로만
+        파악해야 합니다. )
+        <br />본 번역기는 쌍자음 초성을 처리하지 않도록 되어 있습니다. 만약 번역
+        도중에 'ㄱ굼', 'ㅂ불' 같은 식으로 내용이 나온다면 '꿈', '뿔'과 같이
+        이해하시면 될 것 같습니다.
       </div>
 
       {/* Language & Github */}
